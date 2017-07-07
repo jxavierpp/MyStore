@@ -12,9 +12,9 @@ class CreateProductsTable extends Migration {
             $table->double('price', 15, 2);
             $table->integer('stock');
             $table->integer('category_fk')->unsigned();
-            $table->foreign('category_fk')->references('category_id')->on('CATEGORYS');
+            $table->foreign('category_fk')->references('category_id')->on('CATEGORYS')->onDelete("cascade");
             $table->boolean('is_active');
-            $table->timestamps()->nullable();
+            $table->timestamps();
         });
     }
 

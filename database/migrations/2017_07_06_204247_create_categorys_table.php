@@ -11,7 +11,7 @@ class CreateCategorysTable extends Migration {
             $table->string('category_name');
             $table->string('category_description')->unique();
             $table->boolean('is_active');
-            $table->timestamps()->nullable();
+            $table->timestamps();
         });
     }
 

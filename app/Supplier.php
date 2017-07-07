@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Supplier extends Model {
-    protected $primaryKey   = 'supplier_id';
+    protected $primaryKey = 'supplier_id';
     //tabla personalizada
     protected $table = 'SUPPLIERS';
     //atributos del modelo
@@ -14,7 +14,7 @@ class Supplier extends Model {
     /**
      * Relacion muchos a muchos
      */
-    public function categorys(){
+    public function categorys() {
         return $this->belongsToMany('App\Category');
     }
 }

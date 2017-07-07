@@ -5,14 +5,18 @@ use Illuminate\Http\Request;
 use App\Supplier;
 
 class SupplierController extends Controller {
-    public function index(){
-        return Supplier::orderBy('supplier_id','asc')->get();
+    public function index($id = null){
+        if($id == null){
+            return Supplier::orderBy('supplier_id','asc')->get();
+        }else{
+            return $this->show($id);
+        }
     }
     public function store(Request $request){
         $supplier = new Supplier;
-        $supplier->supplierName = $request->input('supplierName');
-        $supplier->supplierEmail = $request->input('supplierEmail');
-        $supplier->supplierPhone = $request->input('supplierPhone');
+        $supplier->supplier_name = $request->input('supplier_name');
+        $supplier->supplier_email = $request->input('supplier_email');
+        $supplier->supplier_phone = $request->input('supplier_phone');
         $supplier->is_active = true;
         $supplier->save();
         return 'Supplier record succesfully created with id #' .$supplier->id;

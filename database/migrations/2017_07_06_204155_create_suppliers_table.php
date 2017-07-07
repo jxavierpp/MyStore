@@ -10,9 +10,9 @@ class CreateSuppliersTable extends Migration {
             $table->increments('supplier_id');
             $table->string('supplier_name');
             $table->string('supplier_email')->unique();
-            $table->integer('supplier_phone');
+            $table->string('supplier_phone');
             $table->boolean('is_active');
-            $table->timestamps()->nullable();
+            $table->timestamps();
         });
     }
 

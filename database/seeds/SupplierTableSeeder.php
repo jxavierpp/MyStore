@@ -11,7 +11,8 @@ class SupplierTableSeeder extends Seeder {
             DB::table('SUPPLIERS')->insert([
                 'supplier_name' => $faker->firstName,
                 'supplier_email' => $faker->email,
-                'supplier_phone' => $faker->phoneNumber
+                'supplier_phone' => $faker->phoneNumber,
+                'is_active' => boolval(true)
             ]);
         }
     }
