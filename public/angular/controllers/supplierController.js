@@ -29,9 +29,9 @@ app.controller('SupplierController', function($scope,$http,API_URL){
 
         $('#myModal').modal('show');
         $("#myModal").on("hidden.bs.modal", function(e){
-            $("#supplierName").val("");
-            $("#supplierEmail").val("");
-            $("#supplierPhone").val("");
+            $("#supplier_name").val("");
+            $("#supplier_email").val("");
+            $("#supplier_phone").val("");
         });
     }
     //save new supplier and update existing supplier

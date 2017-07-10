@@ -52,7 +52,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Supplier Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="supplierName" name="supplierName"
+                                    <input type="text" class="form-control" id="supplier_name" name="supplier_name"
                                            placeholder="Supplier Name" value="@{{ supplier_name }}" ng-model="supplier.supplier_name"
                                            ng-required="true">
                                     <span ng-show="frmSupplier.supplier_name.$invalid && frmSupplier.supplier_name.$touched">Supplier Name field is required</span>
@@ -61,7 +61,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Supplier Email</label>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="supplierEmail" name="supplierEmail"
+                                    <input type="email" class="form-control" id="supplier_email" name="supplier_email"
                                            placeholder="Supplier Email" value="@{{  supplier_email }}" ng-model="supplier.supplier_email"
                                            ng-required="true">
                                     <span ng-show="frmSupplier.supplier_email.$invalid && frmSupplier.supplier_email.$touched">Supplier Email field is required</span>
@@ -70,7 +70,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Supplier Phone</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="supplierPhone" name="supplierPhone"
+                                    <input type="text" class="form-control" id="supplier_phone" name="supplier_phone"
                                            placeholder="Supplier Phone" value="@{{ supplier_phone }}" ng-model="supplier.supplier_phone"
                                            ng-required="true">
                                     <span ng-show="frmSupplier.supplier_phone.$invalid && frmSupplier.supplier_phone.$touched">Supplier Contact field is required</span>
