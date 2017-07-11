@@ -12,7 +12,7 @@
 <!-- Optional Bootstrap theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 <!-- My CSS -->
-<link rel="stylesheet" type="text/css" href="{{asset('assets/index.css')}}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}"/>
 
 <!--jQuery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -30,5 +30,6 @@
 <!--Angular Scripts-->
 <script src="{{ asset('angular/app.js') }}"></script>
 <script src="{{ asset('angular/controllers/SupplierController.js') }}"></script>
+<script src="{{ asset('angular/controllers/CategoryController.js') }}"></script>
 
 

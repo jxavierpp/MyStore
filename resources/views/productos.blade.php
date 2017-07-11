@@ -1,4 +1,4 @@
-@extends('layouts.main.index')
+@extends('layouts.main.products')
 @section('table')
     <table class="table table-striped task-table">
         <thead>

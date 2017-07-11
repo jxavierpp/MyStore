@@ -5,11 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model {
-    protected $primaryKey   = 'product_id';
+    protected $primaryKey = 'product_id';
     //tabla personalizada
     protected $table = 'PRODUCTS';
     //atributos del modelo
-    protected $fillable = ['id','name','price','stock','category_id','is_active'];
+    protected $fillable = ['id','product_name','product_price','product_stock','category_fk','is_active'];
 
     /**
      * Relacion muchos a uno

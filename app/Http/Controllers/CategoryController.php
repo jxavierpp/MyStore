@@ -5,33 +5,35 @@ use Illuminate\Http\Request;
 use App\Category;
 
 class CategoryController extends Controller {
-    public function index(){
-        $cat = Category::orderBy('id','asc')->get();
-        return view('categorias')->with('categorias',$cat);
+    public function index($id = null){
+        if($id == null){
+            return Category::orderBy('category_id','asc')->get();
+        }else{
+            return $this->show($id);
+        }
     }
     public function store(Request $request){
-        $supplier = new Supplier;
-        $supplier->supplierName = $request->input('supplierName');
-        $supplier->supplierEmail = $request->input('supplierEmail');
-        $supplier->supplierPhone = $request->input('supplierPhone');
-        $supplier->is_active = true;
-        $supplier->save();
-        return 'Supplier record succesfully created with id #' .$supplier->id;
+        $category = new Category;
+        $category->category_name = $request->input('category_name');
+        $category->category_description = $request->input('category_description');
+        $category->is_active = true;
+        $category->save();
+        return 'Category record succesfully created with id #' .$category->id;
     }
     public function show($id){
-        return Supplier::find($id);
+        return Category::find($id);
     }
     public function update(Request $request, $id){
-        $supplier = Supplier::find($id);
-        $supplier->supplierName = $request->input('supplierName');
-        $supplier->supplierEmail = $request->input('supplierEmail');
-        $supplier->supplierPhone = $request->input('supplierPhone');
-        $supplier->is_active = $request->input('is_active');
-        $supplier->save();
-        return 'Supplier record succesfully updated with id #' .$supplier->id;
+        $category = Category::find($id);
+        $category->category_name = $request->input('category_name');
+        $category->category_description = $request->input('category_description');
+        $category->save();
+        return 'Category record succesfully updated with id #' .$category->id;
     }
     public function destroy($id){
-        $supplier = Supplier::find($id)->delete();
-        return 'Supplier record succesfully deleted';
+        $category = Category::find($id);
+        $category->is_active = false;
+        $category->save();
+        return 'Category record succesfully deleted';
     }
 }

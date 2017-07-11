@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model {
-    protected $primaryKey   = 'category_id';
+    protected $primaryKey = 'category_id';
     //tabla personalizada
     protected $table = 'CATEGORYS';
     //atributos del modelo

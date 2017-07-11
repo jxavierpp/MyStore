@@ -26,10 +26,9 @@ class SupplierController extends Controller {
     }
     public function update(Request $request, $id){
         $supplier = Supplier::find($id);
-        dd($supplier);
-        $supplier->supplierName = $request->input('supplierName');
-        $supplier->supplierEmail = $request->input('supplierEmail');
-        $supplier->supplierPhone = $request->input('supplierPhone');
+        $supplier->supplier_name = $request->input('supplier_name');
+        $supplier->supplier_email = $request->input('supplier_email');
+        $supplier->supplier_phone = $request->input('supplier_phone');
         $supplier->save();
         return 'Supplier record succesfully updated with id #' .$supplier->id;
     }

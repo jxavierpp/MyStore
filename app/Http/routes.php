@@ -3,6 +3,15 @@
 Route::get('/', function () {
     return view('layouts.main.index');
 });
+Route::get('/proveedores', function () {
+    return view('layouts.main.suppliers');
+});
+Route::get('/categorias', function () {
+    return view('layouts.main.categorys');
+});
+Route::get('/productos', function () {
+    return view('layouts.main.products');
+});
 
 Route::get('/api/supplier/{id?}', 'SupplierController@index');
 Route::post('/api/supplier', 'SupplierController@store');

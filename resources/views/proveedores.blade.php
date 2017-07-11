@@ -1,4 +1,4 @@
-@extends('layouts.main.index')
+@extends('layouts.main.products')
 @section('table1')
     <table class="table table-striped task-table" ng-controller="SupplierController">
         <thead>
