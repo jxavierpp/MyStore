@@ -1,7 +1,7 @@
-app.controller('SupplierController', function($scope, $http, API_URL){
-    //retrieve Supplier lsit from API
-    $http.get(API_URL + "supplier").then(function successCallback(response){
-        $scope.suppliers = response.data;
+app.controller('ProductController', function($scope, $http, API_URL) {
+    //retrieve product list from API
+    $http.get(API_URL + "product").then(function successCallback(response){
+        $scope.products = response.data;
         console.log(response.data);
     }, function errorCallback(){
         console.log("Ocurrio un error");
@@ -18,9 +18,9 @@ app.controller('SupplierController', function($scope, $http, API_URL){
                 $scope.form_tittle = "Editar Proveedor";
                 console.log("editar");
                 $scope.id = id;
-                $http.get(API_URL + 'supplier/' + id).then(function successCallback(response){
-                    $scope.supplier = response.data;
-                    console.log($scope.supplier);
+                $http.get(API_URL + 'product/' + id).then(function successCallback(response){
+                    $scope.product = response.data;
+                    console.log($scope.product);
                 });
                 break;
             default:
@@ -29,26 +29,26 @@ app.controller('SupplierController', function($scope, $http, API_URL){
 
         $('#myModal').modal('show');
         $("#myModal").on("hidden.bs.modal", function(e){
-            $("#supplier_name").val("");
-            $("#supplier_email").val("");
-            $("#supplier_phone").val("");
+            $("#product_name").val("");
+            $("#product_email").val("");
+            $("#product_phone").val("");
         });
     }
-    //save new supplier and update existing supplier
+    //save new product and update existing product
     $scope.save = function(modalstate, id){
-        var url = API_URL + "supplier";
+        var url = API_URL + "product";
         var metodo = 'POST';
         if(modalstate === 'edit'){
             console.log("editar");
             url += "/" + id;
             metodo = 'PUT';
-            console.log($scope.supplier);
+            console.log($scope.product);
         }
         $http({
             method: metodo,
             url: url,
-            //data: $.param($scope.supplier)
-            params: $scope.supplier,
+            //data: $.param($scope.product)
+            params: $scope.product,
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function successCallback(response){
             console.log(response);
@@ -59,13 +59,13 @@ app.controller('SupplierController', function($scope, $http, API_URL){
         });
     }
 
-    //delete supplier record
+    //delete product record
     $scope.confirmDelete = function(id){
         var isConfirmDelete = confirm("Are you sure you want delete this record?");
         if(isConfirmDelete){
             $http({
                 method: 'DELETE',
-                url: API_URL + "supplier/" + id
+                url: API_URL + "product/" + id
             }).then(function successCallback(response){
                 console.log(response.data);
                 location.reload();

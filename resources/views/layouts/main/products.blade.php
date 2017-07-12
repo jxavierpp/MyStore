@@ -9,29 +9,31 @@
         @include('layouts.main.includes.nav')
     </nav>
 
-    <div class="storage" ng-controller="SupplierController">
+    <div class="storage" ng-controller="ProductController">
         {{--@yield('table1')--}}
 
         <table class="table table-striped task-table" >
             <thead>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Email</th>
-            <th>Telefono</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Category</th>
             <th>
                 <button id="btn-add" class="btn btn-success btn-xs" ng-click="toggle('add',0)">Agregar</button>
             </th>
             </thead>
-            <tr ng-repeat="supplier in suppliers" ng-show="supplier.is_active == true">
-                <td>@{{ supplier.supplier_id }}</td>
-                <td>@{{ supplier.supplier_name }}</td>
-                <td>@{{ supplier.supplier_email }}</td>
-                <td>@{{ supplier.supplier_phone }}</td>
+            <tr ng-repeat="product in products" ng-show="product.is_active == true">
+                <td>@{{ product.product_id }}</td>
+                <td>@{{ product.product_name }}</td>
+                <td>@{{ product.product_price }}</td>
+                <td>@{{ product.product_stock }}</td>
+                <td>@{{ product.category_name }}</td>
                 <td>
-                    <button class="btn btn-warning btn-xs btn-detail" ng-click="toggle('edit',supplier.supplier_id)">
+                    <button class="btn btn-warning btn-xs btn-detail" ng-click="toggle('edit', product.product_id)">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </button>
-                    <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(supplier.supplier_id)">
+                    <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(product.product_id)">
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
                 </td>
@@ -48,38 +50,47 @@
                         <h4 class="modal-title" id="myModalLabel" >@{{ form_tittle }}</h4>
                     </div>
                     <div class="modal-body">
-                        <form name="frmSupplier" class="form-horizontal" novalidate="">
+                        <form name="frmProduct" class="form-horizontal" novalidate="">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Supplier Name</label>
+                                <label class="col-sm-3 control-label">product Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="supplier_name" name="supplier_name"
-                                           placeholder="Supplier Name" value="@{{ supplier_name }}" ng-model="supplier.supplier_name"
+                                    <input type="text" class="form-control" id="product_name" name="product_name"
+                                           placeholder="product Name" value="@{{ product_name }}" ng-model="product.product_name"
                                            ng-required="true">
-                                    <span ng-show="frmSupplier.supplier_name.$invalid && frmSupplier.supplier_name.$touched">Supplier Name field is required</span>
+                                    <span ng-show="frmProduct.product_name.$invalid && frmProduct.product_name.$touched">product Name field is required</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Supplier Email</label>
+                                <label class="col-sm-3 control-label">Product Price</label>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="supplier_email" name="supplier_email"
-                                           placeholder="Supplier Email" value="@{{  supplier_email }}" ng-model="supplier.supplier_email"
+                                    <input type="number" class="form-control" id="product_price" name="product_price"
+                                           placeholder="product price" value="@{{  product_price }}" ng-model="product.product_price"
                                            ng-required="true">
-                                    <span ng-show="frmSupplier.supplier_email.$invalid && frmSupplier.supplier_email.$touched">Supplier Email field is required</span>
+                                    <span ng-show="frmProduct.product_price.$invalid && frmProduct.product_price.$touched">product price field is required</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Supplier Phone</label>
+                                <label class="col-sm-3 control-label">product Stock</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="supplier_phone" name="supplier_phone"
-                                           placeholder="Supplier Phone" value="@{{ supplier_phone }}" ng-model="supplier.supplier_phone"
+                                    <input type="number" class="form-control" id="product_stock" name="product_stock"
+                                           placeholder="product stock" value="@{{ product_stock }}" ng-model="product.product_stock"
                                            ng-required="true">
-                                    <span ng-show="frmSupplier.supplier_phone.$invalid && frmSupplier.supplier_phone.$touched">Supplier Contact field is required</span>
+                                    <span ng-show="frmProduct.product_stock.$invalid && frmProduct.product_stock.$touched">product Contact field is required</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Product Category</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="product_category" name="product_stock"
+                                           placeholder="product stock" value="@{{ product_stock }}" ng-model="product.product_stock"
+                                           ng-required="true">
+                                    <span ng-show="frmProduct.product_stock.$invalid && frmProduct.product_stock.$touched">product Contact field is required</span>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="btn-save" ng-click="save(modalstate, id)" ng-disabled="frmSupplier.$invalid">Save Changes</button>
+                        <button type="button" class="btn btn-primary" id="btn-save" ng-click="save(modalstate, id)" ng-disabled="frmproduct.$invalid">Save Changes</button>
                     </div>
                 </div>
             </div>

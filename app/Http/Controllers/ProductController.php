@@ -7,7 +7,7 @@ use App\Product;
 class ProductController extends Controller {
     public function index($id = null){
         if($id == null){
-            return Product::orderBy('product_id','asc')->get();
+            return Product::join("CATEGORYS","category_fk","=","category_id")->orderBy('product_id','asc')->get();
         }else{
             return $this->show($id);
         }
@@ -21,9 +21,6 @@ class ProductController extends Controller {
         $product->is_active = true;
         $product->save();
         return 'Product record succesfully created with id #' .$product->id;
-    }
-    public function show($id){
-        return Product::find($id);
     }
     public function update(Request $request, $id){
         $product = Product::find($id);

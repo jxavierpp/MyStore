@@ -31,5 +31,6 @@
 <script src="{{ asset('angular/app.js') }}"></script>
 <script src="{{ asset('angular/controllers/SupplierController.js') }}"></script>
 <script src="{{ asset('angular/controllers/CategoryController.js') }}"></script>
+<script src="{{ asset('angular/controllers/ProductController.js') }}"></script>
 
 

@@ -14,7 +14,7 @@ class Product extends Model {
     /**
      * Relacion muchos a uno
      */
-    public function categorys() {
-        return $this->belongsTo('App\Category','category_id');
+    public function category() {
+        return $this->belongsTo('App\Category');
     }
 }
