@@ -1,4 +1,4 @@
-app.controller('SupplierController', function($scope, $http, API_URL){
+app.controller('SupplierController', function($scope, $http, API_URL, CSRF_TOKEN){
     //retrieve Supplier lsit from API
     $http.get(API_URL + "supplier").then(function successCallback(response){
         $scope.suppliers = response.data;

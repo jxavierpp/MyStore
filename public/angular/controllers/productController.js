@@ -1,4 +1,4 @@
-app.controller('ProductController', function($scope, $http, API_URL) {
+app.controller('ProductController', function($scope, $http, API_URL, CSRF_TOKEN) {
     //retrieve product list from API
     $http.get(API_URL + "product").then(function successCallback(response){
         $scope.products = response.data;
@@ -30,22 +30,21 @@ app.controller('ProductController', function($scope, $http, API_URL) {
         $('#myModal').modal('show');
         $("#myModal").on("hidden.bs.modal", function(e){
             $("#product_name").val("");
-            $("#product_email").val("");
-            $("#product_phone").val("");
+            $("#product_price").val("");
+            $("#product_stock").val("");
+            $("#product_category").val("Seleccionar Categoria");
         });
     }
     //save new product and update existing product
     $scope.save = function(modalstate, id){
         var url = API_URL + "product";
-        var metodo = 'POST';
         if(modalstate === 'edit'){
-            console.log("editar");
             url += "/" + id;
-            metodo = 'PUT';
-            console.log($scope.product);
         }
+
+        console.log($scope.product);
         $http({
-            method: metodo,
+            method: 'POST',
             url: url,
             //data: $.param($scope.product)
             params: $scope.product,

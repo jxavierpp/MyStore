@@ -16,9 +16,9 @@
             <thead>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Category</th>
+            <th>Precio</th>
+            <th>Inventario</th>
+            <th>Categoria</th>
             <th>
                 <button id="btn-add" class="btn btn-success btn-xs" ng-click="toggle('add',0)">Agregar</button>
             </th>
@@ -52,39 +52,38 @@
                     <div class="modal-body">
                         <form name="frmProduct" class="form-horizontal" novalidate="">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">product Name</label>
+                                <label class="col-sm-3 control-label">Product Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="product_name" name="product_name"
-                                           placeholder="product Name" value="@{{ product_name }}" ng-model="product.product_name"
-                                           ng-required="true">
-                                    <span ng-show="frmProduct.product_name.$invalid && frmProduct.product_name.$touched">product Name field is required</span>
+                                           placeholder="product name" value="@{{ product_name }}" ng-model="product.product_name" ng-required="true">
+                                    <span ng-show="frmProduct.product_name.$invalid && frmProduct.product_name.$touched">product name field is required</span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Product Price</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="product_price" name="product_price"
-                                           placeholder="product price" value="@{{  product_price }}" ng-model="product.product_price"
-                                           ng-required="true">
+                                    <input type=number step=0.01 min="0" class="form-control" id="product_price" name="product_price"
+                                           placeholder="product price" value="@{{  product_price }}" ng-model="product.product_price" ng-required="true">
                                     <span ng-show="frmProduct.product_price.$invalid && frmProduct.product_price.$touched">product price field is required</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">product Stock</label>
+                                <label class="col-sm-3 control-label">Product Stock</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="product_stock" name="product_stock"
-                                           placeholder="product stock" value="@{{ product_stock }}" ng-model="product.product_stock"
-                                           ng-required="true">
-                                    <span ng-show="frmProduct.product_stock.$invalid && frmProduct.product_stock.$touched">product Contact field is required</span>
+                                    <input type="number" min="0" class="form-control" id="product_stock" name="product_stock"
+                                           placeholder="product stock" value="@{{ product_stock }}" ng-model="product.product_stock" ng-required="true">
+                                    <span ng-show="frmProduct.product_stock.$invalid && frmProduct.product_stock.$touched">product stock field is required</span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Product Category</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="product_category" name="product_stock"
-                                           placeholder="product stock" value="@{{ product_stock }}" ng-model="product.product_stock"
-                                           ng-required="true">
-                                    <span ng-show="frmProduct.product_stock.$invalid && frmProduct.product_stock.$touched">product Contact field is required</span>
+                                    <select class="form-control" id="product_category" name="product_category" ng-model="product.category_fk" ng-required="true">
+                                        <option value="" selected="selected">Seleccionar Categoria</option>
+                                        <option ng-repeat="product in products" value="@{{ product.category_fk }}" >
+                                            @{{ product.category_name }}
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
                         </form>
